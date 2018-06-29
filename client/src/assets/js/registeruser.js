@@ -39,7 +39,7 @@ function limpa_formulário_cep() {
     $("#bairro").val("");
     $("#cidade").val("");
     $("#uf").val("");
-}a
+}
     
     //Quando o campo cep perde o foco.
     $("#cep").blur(function() {
