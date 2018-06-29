@@ -1,13 +1,13 @@
-$(".js-select2").each(function(){
+$(".js-select2").each(function () {
     $(this).select2({
         minimumResultsForSearch: 20,
         dropdownParent: $(this).next('.dropDownSelect2')
     });
 
 
-    $(".js-select2").each(function(){
-        $(this).on('select2:close', function (e){
-            if($(this).val() == "Please chooses") {
+    $(".js-select2").each(function () {
+        $(this).on('select2:close', function (e) {
+            if ($(this).val() == "Please chooses") {
                 $('.js-show-service').slideUp();
             }
             else {
@@ -18,24 +18,38 @@ $(".js-select2").each(function(){
     });
 })
 
-var filterBar = document.getElementById('filter-bar');
+function toggle ( element ){
 
-noUiSlider.create(filterBar, {
-    start: [ 1500, 3900 ],
-    connect: true,
-    range: {
-        'min': 1500,
-        'max': 7500
-    }
-});
+	if ( this.checked ) {
+		element.setAttribute('disabled', true);
+	} else {
+		element.removeAttribute('disabled');
+	}
+}
 
-var skipValues = [
-document.getElementById('value-lower'),
-document.getElementById('value-upper')
-];
 
-filterBar.noUiSlider.on('update', function( values, handle ) {
-    skipValues[handle].innerHTML = Math.round(values[handle]);
-    $('.contact100-form-range-value input[name="from-value"]').val($('#value-lower').html());
-    $('.contact100-form-range-value input[name="to-value"]').val($('#value-upper').html());
-});
+jQuery(document).ready(function ($) {
+    var filterBar = document.getElementById('filter-bar');
+    origins = filterBar.getElementsByClassName('noUi-origin');
+    checkbox1 = document.getElementById('checkbox1'),
+    checkbox2 = document.getElementById('checkbox2'),
+
+
+    noUiSlider.create(filterBar, {
+        start: [0, 250],
+        range: {
+            'min': 0,
+            'max': 250
+        }
+    });
+
+    checkbox2.addEventListener('click', function(){
+        toggle.call(this, origins[0]);
+    });
+
+    checkbox2.addEventListener('click', function(){
+        toggle.call(this, origins[1]);
+    });
+
+
+})
