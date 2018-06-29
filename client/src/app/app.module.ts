@@ -8,6 +8,7 @@ import { RegisteruserComponent } from './components/registeruser/registeruser.co
 import { RegistergameComponent } from './components/registergame/registergame.component';
 import { DistributorComponent } from './components/distributor/distributor.component';
 import { StoreComponent } from './components/store/store.component';
+import { UserComponent } from './components/user/user.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { StoreComponent } from './components/store/store.component';
     RegisteruserComponent,
     RegistergameComponent,
     DistributorComponent,
-    StoreComponent
+    StoreComponent,
+    UserComponent
   ],
   imports: [
     BrowserModule,

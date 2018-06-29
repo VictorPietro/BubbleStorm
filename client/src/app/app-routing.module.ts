@@ -5,28 +5,38 @@ import { RegisteruserComponent } from './components/registeruser/registeruser.co
 import { RegistergameComponent } from './components/registergame/registergame.component';
 import { DistributorComponent } from './components/distributor/distributor.component';
 import { StoreComponent } from './components/store/store.component';
+import { UserComponent } from './components/user/user.component';
 
 const routes: Routes = [
   {
-	path: '',
+    path: 'home',
     component: HomeComponent,
-	pathMatch: 'full'
+    //pathMatch: 'full'
   },
   {
-	path: 'registeruser',
+    path: 'registeruser',
     component: RegisteruserComponent
   },
   {
-  path: 'registergame',
+    path: 'registergame',
     component: RegistergameComponent
   },
   {
-  path: 'distributor',
-   component: DistributorComponent
+    path: 'distributor',
+    component: DistributorComponent
   },
   {
-  path: 'store',
-   component: StoreComponent
+    path: 'store',
+    component: StoreComponent
+  },
+  {
+    path: 'user',
+    component: UserComponent
+  },
+  {
+    path: '',
+    redirectTo: '/home',
+    pathMatch: 'full'
   }
 ];
 
