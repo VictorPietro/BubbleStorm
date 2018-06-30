@@ -7,9 +7,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DistributorComponent implements OnInit {
 
+
+  filter:string;
+
   constructor() { }
 
   ngOnInit() {
+  }
+
+  teste(){
+    console.log("Filter: ", this.filter);
   }
 
 }

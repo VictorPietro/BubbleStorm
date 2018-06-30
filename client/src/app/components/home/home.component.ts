@@ -1,5 +1,6 @@
 import { Component, OnInit, Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { Usuario } from '../../models/Usuario';
 
 @Component({
   selector: 'app-home',
@@ -11,25 +12,21 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 export class HomeComponent implements OnInit {
 
   rota : string
-  url1 = "http://192.168.0.10:8080/auth";
-  url2 = "http://localhost:8080";
-
-  /*sem const*/httpOptions = {
-    headers: new HttpHeaders({
-      'Content-Type':  'application/json',
-    })
-  };
-
-  constructor(private http: HttpClient) {
-    console.log("***")
-    this.http.get<any>(this.url2)
-  }
+  
+  constructor() {  }
+  usuario: Usuario = new Usuario();
+   
 
   ngOnInit() {
   }
 
   clickTipo(type : string){
     this.rota = type
+  }
+
+  teste(){
+    console.log("Login: ", this.usuario.login);
+    console.log("Senha: ", this.usuario.senha);
   }
 
 }
