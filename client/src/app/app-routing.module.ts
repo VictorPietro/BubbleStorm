@@ -6,6 +6,7 @@ import { RegistergameComponent } from './components/registergame/registergame.co
 import { DistributorComponent } from './components/distributor/distributor.component';
 import { StoreComponent } from './components/store/store.component';
 import { UserComponent } from './components/user/user.component';
+import { GenerosComponent } from './components/generos/generos.component';
 
 const routes: Routes = [
   {
@@ -32,6 +33,10 @@ const routes: Routes = [
   {
     path: 'user',
     component: UserComponent
+  },
+  {
+    path: 'generos',
+    component: GenerosComponent
   },
   {
     path: '',

@@ -1,0 +1,21 @@
+<h2>Generos</h2>
+ 
+<div>
+  <label>Nome do Genero:
+    <input #nomeGenero />
+  </label>
+  <!-- (click) passes input value to add() and then clears the input -->
+  <button (click)="add(nomeGenero.value); nomeGenero.value=''">
+    add
+  </button>
+</div>
+ 
+<ul class="generos">
+  <li *ngFor="let genero of generos">
+    <a routerLink="/detail/{{genero.id}}">
+      <span class="badge">{{genero.id}}</span> {{genero.nomeGenero}}
+    </a>
+    <button class="delete" title="delete genero"
+      (click)="delete(genero)">x</button>
+  </li>
+</ul>

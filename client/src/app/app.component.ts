@@ -1,5 +1,8 @@
 import { Component } from '@angular/core';
 import { RecordsService } from './records.service'
+import { Genero } from 'src/app/models/Genero';
+import { GeneroService } from 'src/app/services/generos.service'
+import { GenerosComponent } from './components/generos/generos.component';
 
 @Component({
   selector: 'app-root',
@@ -7,17 +10,9 @@ import { RecordsService } from './records.service'
   styleUrls: ['./app.component.css']
 })
 
+
 export class AppComponent {
-  records = {}
 
-  constructor(private myFirstService: RecordsService){
-    
-  }
+  title = 'Bubble Store';
 
-  getData(){
-    console.log(this.records = this.myFirstService.getData())
-  }
-
-  ngOnInit(){
-  }
 }

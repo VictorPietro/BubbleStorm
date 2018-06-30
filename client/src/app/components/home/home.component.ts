@@ -7,30 +7,27 @@ import { DataService } from '../../services/data.service';
   selector: 'app-home',
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css']
-})     
+})
 
 @Injectable()
 export class HomeComponent implements OnInit {
 
-  rota : string
-  
-  constructor() {  }
   usuario: Usuario = new Usuario();
-   rota : string
-  constructor(private dataService:DataService) { }
+  rota: string
+  constructor(private dataService: DataService) { }
 
   ngOnInit() {
   }
 
   ngOnDestroy() {
-    this.dataService.data = this.rota; 
- }
+    this.dataService.data = this.rota;
+  }
 
-  clickTipo(type : string){
+  clickTipo(type: string) {
     this.rota = type
   }
 
-  teste(){
+  teste() {
     console.log("Login: ", this.usuario.login);
     console.log("Senha: ", this.usuario.senha);
   }
