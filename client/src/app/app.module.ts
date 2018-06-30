@@ -9,6 +9,8 @@ import { RegistergameComponent } from './components/registergame/registergame.co
 import { DistributorComponent } from './components/distributor/distributor.component';
 import { StoreComponent } from './components/store/store.component';
 import { UserComponent } from './components/user/user.component';
+import { HttpClientModule } from '@angular/common/http';
+import { RecordsService } from './records.service';
 
 @NgModule({
   declarations: [
@@ -22,9 +24,10 @@ import { UserComponent } from './components/user/user.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule
   ],
-  providers: [],
+  providers: [RecordsService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
