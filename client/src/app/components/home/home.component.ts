@@ -1,6 +1,7 @@
 import { Component, OnInit, Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Usuario } from '../../models/Usuario';
+import { DataService } from '../../services/data.service';
 
 @Component({
   selector: 'app-home',
@@ -15,10 +16,15 @@ export class HomeComponent implements OnInit {
   
   constructor() {  }
   usuario: Usuario = new Usuario();
-   
+   rota : string
+  constructor(private dataService:DataService) { }
 
   ngOnInit() {
   }
+
+  ngOnDestroy() {
+    this.dataService.data = this.rota; 
+ }
 
   clickTipo(type : string){
     this.rota = type

@@ -7,9 +7,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class StoreComponent implements OnInit {
 
+  filter: string;
+
   constructor() { }
 
   ngOnInit() {
+  }
+
+  test(){
+    console.log("Filter: ", this.filter);
   }
 
 }
