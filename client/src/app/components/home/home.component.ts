@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Usuario } from '../../models/Usuario';
 
 @Component({
   selector: 'app-home',
@@ -6,6 +7,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
+
+  usuario: Usuario = new Usuario();
 
    rota : string
   constructor() { }
@@ -15,6 +18,11 @@ export class HomeComponent implements OnInit {
 
   clickTipo(type : string){
     this.rota = type
+  }
+
+  teste(){
+    console.log("Login: ", this.usuario.login);
+    console.log("Senha: ", this.usuario.senha);
   }
 
 }

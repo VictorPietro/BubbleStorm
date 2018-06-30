@@ -28,14 +28,14 @@ function toggle ( element ){
 }
 
 
-jQuery(document).ready(function ($) {
+/*  jQuery(document).ready(function ($) {
     var filterBar = document.getElementById('filter-bar');
-    origins = filterBar.getElementsByClassName('noUi-origin');
+    //origins = filterBar.getElementsByClassName('noUi-origin');
     checkbox1 = document.getElementById('checkbox1'),
     checkbox2 = document.getElementById('checkbox2'),
 
 
-    noUiSlider.create(filterBar, {
+    /*noUiSlider.create(filterBar, {
         start: [0, 250],
         range: {
             'min': 0,
@@ -44,12 +44,11 @@ jQuery(document).ready(function ($) {
     });
 
     checkbox2.addEventListener('click', function(){
-        toggle.call(this, origins[0]);
+        //toggle.call(this, origins[0]);
     });
 
     checkbox2.addEventListener('click', function(){
-        toggle.call(this, origins[1]);
+       // toggle.call(this, origins[1]);
     });
 
-
-})
+*/
