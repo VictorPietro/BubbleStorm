@@ -5,6 +5,7 @@ import { Directive, ElementRef, HostListener, Input } from '@angular/core';
 import { Distribuidora } from '../../models/Distribuidora';
 import { Cliente } from '../../models/Cliente';
 import { Contato } from '../../models/Contato'
+import { DataService } from '../../services/data.service';
 
 
 @Component({
@@ -19,10 +20,13 @@ export class RegisteruserComponent implements OnInit {
   distribuidora: Distribuidora = new Distribuidora();
   cliente: Cliente = new Cliente();
   contato: Contato = new Contato();
+  rota: string;
 
-  constructor() { }
+  constructor(private dataService: DataService) { }
 
   ngOnInit() {
+    this.rota = this.dataService.data;
+    console.log(this.rota);
   }
 
   teste() {

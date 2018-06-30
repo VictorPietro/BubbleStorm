@@ -33,7 +33,7 @@
 			<div class="wrap-input100 input100-select bg1 rs1-wrap-input100" style="height: 50%; margin-top: 10%">
 				<span class="label-input100">FILTRAR POR *</span>
 				<div>
-					<select class="js-select2" name="estado">
+					<select class="js-select2" name="estado" [(ngModel)]="filter">
 						<option>Nome</option>
 						<option>Gênero</option>
 						<option>Distribuidora</option>
@@ -94,7 +94,7 @@
 					</button>
 				</a>
 
-				<button class="contact100-form-btn col-md-4" style="margin: 5px">
+				<button class="contact100-form-btn col-md-4" style="margin: 5px" (click)="test()">
 					<span>
 						Adicionar jogo no carrinho
 						<i class="fa fa-long-arrow-right m-l-7" aria-hidden="true"></i>

@@ -7,23 +7,23 @@
 
 			<div class="wrap-input100 validate-input bg1" data-validate="Digite o nome do jogo">
 				<span class="label-input100">Nome</span>
-				<input class="input100" type="text" name="nome">
+				<input class="input100" type="text" name="nome" [(ngModel)]="jogo.nome">
 			</div>
 
 			<div class="wrap-input100 validate-input bg1 rs1-wrap-input100">
 				<span class="label-input100">Preço</span>
-				<input class="input100" type="text" name="preco">
+				<input class="input100" type="text" name="preco" [(ngModel)]="jogo.preco">
 			</div>
 
 			<div class="wrap-input100 validate-input bg1 rs1-wrap-input100">
 				<span class="label-input100">Ano de lançamento</span>
-				<input class="input100" type="text" name="ano">
+				<input class="input100" type="text" name="ano" [(ngModel)]="jogo.anoLancamento">
 			</div>
 
 			<div class="wrap-input100 input100-select bg1" style="width: 80%">
 				<span class="label-input100">Gênero *</span>
 				<div>
-					<select class="js-select2" name="estado">
+					<select class="js-select2" name="estado" [(ngModel)]="jogo.genero">
 						<option>Gênero Cadastrado 1</option>
 						<option>Gênero Cadastrado 2</option>
 						<option>Gênero Cadastrado 3</option>
@@ -55,7 +55,7 @@
 					</button>
 				</a>
 
-				<button class="contact100-form-btn col-md-4" style="margin: 5px">
+				<button class="contact100-form-btn col-md-4" style="margin: 5px" (click)="teste()">
 					<span>
 						Cadastrar Jogo
 						<i class="fa fa-long-arrow-right m-l-7" aria-hidden="true"></i>
@@ -80,12 +80,12 @@
 
 			<div class="wrap-input100 validate-input bg1" data-validate="Digite o nome do jogo">
 				<span class="label-input100">Nome do Gênero</span>
-				<input class="input100" type="text" name="nome">
+				<input class="input100" type="text" name="nome" [(ngModel)]="genero.nomeGenero">
 			</div>
 
 			<div class="wrap-input100 validate-input bg1" data-validate="Digite o nome do jogo">
 				<span class="label-input100">Descrição do Gênero</span>
-				<input class="input100" type="text" name="nome">
+				<input class="input100" type="text" name="nome" [(ngModel)]="genero.descricaoGenero">
 			</div>
 
 

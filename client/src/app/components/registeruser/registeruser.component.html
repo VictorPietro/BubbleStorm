@@ -1,122 +1,127 @@
 <div class="container-contact100">
-		<div class="wrap-contact100">
-			<form class="contact100-form validate-form">
-				<span class="contact100-form-title">
-					CADASTRO DE ACESSO
-				</span>
+	<div class="wrap-contact100">
+		<form class="contact100-form validate-form">
+			<span class="contact100-form-title">
+				CADASTRO DE ACESSO
+			</span>
 
-				<div class="wrap-input100 validate-input bg1 rs1-wrap-input100" data-validate="Digite um usuário">
-					<span class="label-input100">USUÁRIO *</span>
-					<input class="input100" type="text" name="usuario" [(ngModel)]="usuario.login">
+			<div class="wrap-input100 validate-input bg1 rs1-wrap-input100" data-validate="Digite um usuário">
+				<span class="label-input100">USUÁRIO *</span>
+				<input class="input100" type="text" name="usuario" [(ngModel)]="usuario.login">
+			</div>
+
+			<div class="wrap-input100 validate-input bg1 rs1-wrap-input100">
+				<span class="label-input100">SENHA *</span>
+				<input class="input100" type="password" name="senha" [(ngModel)]="usuario.senha">
+			</div>
+
+			<div class="wrap-input100 bg1 rs1-wrap-input100" *ngIf="rota=='distributor'">
+				<span class="label-input100">IDENTIFICAÇÃO DA EMPRESA*</span>
+				<input class="input100" type="text" name="cnpj" placeholder="CNPJ" [(ngModel)]="distribudora.cnpj">
+			</div>
+
+			<div class="wrap-input100 bg1 rs1-wrap-input100" *ngIf="rota=='user'">
+				<span class="label-input100">IDENTIFICAÇÃO CIVIL*</span>
+				<input class="input100" type="text" name="cpf" placeholder="CPF" [(ngModel)]="cliente.cpf">
+			</div>
+
+			<div class="wrap-input100 input100-select bg1 rs1-wrap-input100" id="data_nasc" *ngIf="rota=='user'">
+				<span class="label-input100">DATA DE NASCIMENTO</span>
+				<input class="input100" type="text" name="data" placeholder="99/99/9999" [(ngModel)]="cliente.dataNascimento">
+
+			</div>
+
+			<div class="wrap-input100 input100-select bg1">
+				<span class="label-input100">PAÍS *</span>
+				<div>
+					<select class="js-select2" name="pais" id="pais" [(ngModel)]="endereco.pais">
+					</select>
+
+					<div class="dropDownSelect2"></div>
 				</div>
+			</div>
 
-				<div class="wrap-input100 validate-input bg1 rs1-wrap-input100">
-					<span class="label-input100">SENHA *</span>
-					<input class="input100" type="password" name="senha" [(ngModel)]="usuario.senha">
+
+
+			<div class="wrap-input100 input100-select bg1 rs1-wrap-input100">
+				<span class="label-input100">CEP</span>
+				<input class="input100" type="text" name="cep" id="cep" [(ngModel)]="endereco.cep">
+
+			</div>
+
+			<div class="wrap-input100 input100-select bg1 rs1-wrap-input100">
+				<span class="label-input100">BAIRRO</span>
+				<input class="input100" type="text" name="bairro" id="bairro" [(ngModel)]="endereco.bairro">
+
+			</div>
+
+
+
+			<div class="wrap-input100 input100-select bg1 rs1-wrap-input100">
+				<span class="label-input100">CIDADE</span>
+				<input class="input100" type="text" name="cidade" id="cidade" [(ngModel)]="endereco.cidade">
+
+			</div>
+
+			<div class="wrap-input100 input100-select bg1 rs1-wrap-input100">
+				<span class="label-input100">ESTADO *</span>
+				<div>
+					<input class="input100" type="text" name="uf" id="uf" [(ngModel)]="endereco.estado">
+
 				</div>
+			</div>
 
-				<div class="wrap-input100 bg1 rs1-wrap-input100">
-					<span class="label-input100">IDENTIFICAÇÃO *</span>
-					<input class="input100" type="text" name="cpf" placeholder="CPF / CNPJ">
+
+			<div class="wrap-input100 input100-select bg1 rs1-wrap-input100">
+				<span class="label-input100">RUA</span>
+				<div>
+					<input class="input100" type="text" name="rua" id="rua" [(ngModel)]="endereco.rua">
+
 				</div>
+			</div>
 
-				<div class="wrap-input100 input100-select bg1 rs1-wrap-input100" id="data_nasc">
-					<span class="label-input100">DATA DE NASCIMENTO</span>
-					<input class="input100" type="text" name="data" placeholder="99/99/9999" [(ngModel)]="cliente.dataNascimento">
-					
+			<div class="wrap-input100 input100-select bg1 rs1-wrap-input100">
+				<span class="label-input100">NUMERO</span>
+				<div>
+					<input class="input100" type="text" name="numero" id="numero" [(ngModel)]="endereco.numero">
+
 				</div>
+			</div>
 
-				<div class="wrap-input100 input100-select bg1">
-					<span class="label-input100">PAÍS *</span>
-					<div>
-						<select class="js-select2" name="pais" id="pais" [(ngModel)]="endereco.pais">
-						</select>
+			<div class="wrap-input100 input100-select bg1">
+				<span class="label-input100">NOME</span>
+				<input class="input100" type="text" name="nome" [(ngModel)]="usuario.nome">
 
-						<div class="dropDownSelect2"></div>
-					</div>
-				</div>
+			</div>
 
-				
+			<div class="wrap-input100 input100-select bg1 rs1-wrap-input100">
+				<span class="label-input100">EMAIL</span>
+				<input class="input100" placeholder="email@example.com" type="mail" name="email" [(ngModel)]="contato.email">
 
-				<div class="wrap-input100 input100-select bg1 rs1-wrap-input100">
-					<span class="label-input100">CEP</span>
-					<input class="input100" type="text" name="cep" id="cep" [(ngModel)]="endereco.cep">
-					
-				</div>
+			</div>
 
-				<div class="wrap-input100 input100-select bg1 rs1-wrap-input100">
-					<span class="label-input100">BAIRRO</span>
-					<input class="input100" type="text" name="bairro" id="bairro" [(ngModel)]="endereco.bairro">
-					
-				</div>
+			<div class="wrap-input100 input100-select bg1 rs1-wrap-input100">
+				<span class="label-input100">TELEFONE</span>
+				<input class="input100" placeholder="Ex: 19 997971212" type="text" name="fone" [(ngModel)]="contato.telefone">
+
+			</div>
 
 
+			<div class="container-contact100-form-btn">
 
-				<div class="wrap-input100 input100-select bg1 rs1-wrap-input100">
-					<span class="label-input100">CIDADE</span>
-					<input class="input100" type="text" name="cidade" id="cidade" [(ngModel)]="endereco.cidade">
-					
-				</div>
-
-				<div class="wrap-input100 input100-select bg1 rs1-wrap-input100">
-					<span class="label-input100">ESTADO *</span>
-					<div>
-						<input class="input100" type="text" name="uf" id="uf" [(ngModel)]="endereco.estado">
-						
-					</div>
-				</div>
-
-
-				<div class="wrap-input100 input100-select bg1 rs1-wrap-input100">
-					<span class="label-input100">RUA</span>
-					<div>
-						<input class="input100" type="text" name="rua" id="rua" [(ngModel)]="endereco.rua">
-						
-					</div>
-				</div>
-
-				<div class="wrap-input100 input100-select bg1 rs1-wrap-input100">
-					<span class="label-input100">NUMERO</span>
-					<div>
-						<input class="input100" type="text" name="numero" id="numero" [(ngModel)]="endereco.numero">
-						
-					</div>
-				</div>
-
-				<div class="wrap-input100 input100-select bg1">
-					<span class="label-input100">NOME</span>
-					<input class="input100" type="text" name="nome" [(ngModel)]="usuario.nome">
-					
-				</div>
-
-				<div class="wrap-input100 input100-select bg1 rs1-wrap-input100">
-					<span class="label-input100">EMAIL</span>
-					<input class="input100" placeholder="email@example.com" type="mail" name="email" [(ngModel)]="contato.email">
-					
-				</div>
-
-				<div class="wrap-input100 input100-select bg1 rs1-wrap-input100">
-					<span class="label-input100">TELEFONE</span>
-					<input class="input100" placeholder="Ex: 19 997971212" type="text" name="fone" [(ngModel)]="contato.telefone">
-					
-				</div>
-
-
-			 	<div class="container-contact100-form-btn">
-					
-					<a onclick="window.history.go(-1)" class="contact100-form-btn col-md-4" style="margin: 5px;    color: #fff;
+				<a onclick="window.history.go(-1)" class="contact100-form-btn col-md-4" style="margin: 5px;    color: #fff;
     cursor: pointer;">
-						<span>
-							Voltar
-						</span>
-					</a>
-					<button (click)="teste()" class="contact100-form-btn col-md-4" style="margin: 5px">
-						<span>
-							Cadastrar
-							<i class="fa fa-long-arrow-right m-l-7" aria-hidden="true"></i>
-						</span>
-					</button>
-				</div>
-			</form>
-		</div>
-  </div>
+					<span>
+						Voltar
+					</span>
+				</a>
+				<button (click)="teste()" class="contact100-form-btn col-md-4" style="margin: 5px">
+					<span>
+						Cadastrar
+						<i class="fa fa-long-arrow-right m-l-7" aria-hidden="true"></i>
+					</span>
+				</button>
+			</div>
+		</form>
+	</div>
+</div>
