@@ -16,7 +16,7 @@
 			</div>
 
 			<div class="wrap-input100 validate-input bg1 rs1-wrap-input100" data-validate="Digite seu usuário">
-				<span class="label-input100">Usuário</span>
+				<span class="label-input100">Login</span>
 				<input class="input100" type="text" name="usuario" [(ngModel)]="usuario.login">
 			</div>
 
@@ -38,7 +38,7 @@
 				</a>
 
 				<a class="contact100-form-btn col-md-4" routerLink="/{{rota}}">
-					<a id="buttonEntrar" class="contact100-form-btn col-md-4" (click)="teste()" style="margin: 5px">
+					<a id="buttonEntrar" class="contact100-form-btn col-md-4" (click)="mandarLogin()" style="margin: 5px">
 						<span>
 							Entrar
 							<i class="fa fa-long-arrow-right m-l-7" aria-hidden="true"></i>

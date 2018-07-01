@@ -28,6 +28,7 @@ export class GenerosComponent implements OnInit {
     this.generoService.getGeneros()
       .subscribe(generos => this.generos = generos);
   }
+  
   add(nomeGenero: string): void {
     nomeGenero = nomeGenero.trim();
     if (!nomeGenero) { return; }

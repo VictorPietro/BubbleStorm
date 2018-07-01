@@ -38,24 +38,12 @@ export class RegisteruserComponent implements OnInit {
   }
 
   teste() {
-    console.log("Login: ", this.usuario.login);
-    console.log("Senha: ", this.usuario.senha);
-    console.log("Nome: ", this.usuario.nome);
-    if (this.rota == 'user') {
-      console.log("DOB: ", this.cliente.dataNascimento);
-      console.log("CPF: ", this.cliente.cpf);
-    } else {
-      console.log("CNPJ: ", this.distribuidora.cnpj)
-    }
-    console.log("Pais: ", this.endereco.pais);
-    console.log("Cep: ", this.endereco.cep);
-    console.log("Cidade: ", this.endereco.cidade);
-    console.log("Estado: ", this.endereco.estado);
-    console.log("Rua: ", this.endereco.rua);
-    console.log("Numero: ", this.endereco.numero);
-    console.log("Email: ", this.contato.email);
-    console.log("Telefone: ", this.contato.telefone);
+    this.cliente.login = this.usuario.login;
+    this.cliente.senha = this.usuario.senha;
+    this.clienteService.sendCliente(this.cliente);
   }
+
+
 
   salvarCliente(){
     this.cliente.login = this.usuario.login;

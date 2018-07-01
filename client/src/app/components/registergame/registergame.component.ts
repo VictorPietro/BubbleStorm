@@ -3,6 +3,7 @@ import { Jogo } from '../../models/Jogo';
 import { Genero } from '../../models/Genero';
 import { GeneroService } from '../../services/generos.service';
 import { JogoService } from '../../services/jogo.service';
+import { filter } from 'rxjs/operators';
 
 
 @Component({
@@ -15,6 +16,7 @@ export class RegistergameComponent implements OnInit {
     jogo: Jogo = new Jogo();
     genero: Genero = new Genero();
     generos: Genero[];
+    entrada;
 
     constructor(
         private generoService: GeneroService,
@@ -62,6 +64,8 @@ export class RegistergameComponent implements OnInit {
         this.generoService.deleteGenero(genero).subscribe();
     }
 
-
-
+    /*filtro(): void{
+        this.generos = this.generos.filter(elementoAtual =>
+            //elementoAtual.includes(entrada));
+    }*/
 }

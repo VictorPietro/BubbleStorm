@@ -14,7 +14,7 @@ const httpOptions = {
 })
 export class GeneroService {
 
-  private generosUrl = 'http://localhost:8080/generos';  // URL to web api
+  private generosUrl = 'http://192.168.0.90:8080/generos';  // URL to web api
  
   constructor(
     private http: HttpClient,

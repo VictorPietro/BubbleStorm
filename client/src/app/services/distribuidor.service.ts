@@ -13,7 +13,7 @@ const httpOptions = {
   providedIn: 'root'
 })
 export class DistribuidorService {
-  private url = 'http://localhost:8080/distribuidores';
+  private url = 'http://192.168.0.90:8080/distribuidores';
 
   constructor(private http: HttpClient, private messageService : MessageService ) { }
 
@@ -21,6 +21,13 @@ export class DistribuidorService {
     return this.http.post<any>(this.url, distribuidor, httpOptions).pipe(
       tap((distribuidor: Distribuidora) => this.log(`added Distribuidor`)),
       catchError(this.handleError<Distribuidora>('addDistribuidor'))
+    );
+  }
+
+  sendDistribuidor(distribuidor: Distribuidora): Observable<Distribuidora> {
+    return this.http.post<any>(this.url+'/login', distribuidor, httpOptions).pipe(
+      tap((distribuidor: Distribuidora) => this.log(`sent Distribuidor`)),
+      catchError(this.handleError<Distribuidora>('sendDistribuidor'))
     );
   }
 
