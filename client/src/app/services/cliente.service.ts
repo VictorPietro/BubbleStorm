@@ -14,14 +14,22 @@ const httpOptions = {
 })
 export class ClienteService {
 
-  private url = 'http://localhost:8080/clientes';
+  private url = 'http://192.168.0.90:8080/clientes';
 
-  constructor(private http: HttpClient, private messageService : MessageService ) { }
+  constructor(private http: HttpClient, private messageService : MessageService) { }
 
   addCliente(cliente: Cliente): Observable<Cliente> {
     return this.http.post<any>(this.url, cliente, httpOptions).pipe(
       tap((cliente: Cliente) => this.log(`added cliente`)),
       catchError(this.handleError<Cliente>('addCliente'))
+    );
+  }
+
+  sendCliente(cliente: Cliente): Observable<Cliente> {
+    console.log(cliente);
+    return this.http.post<any>(this.url+'/login', cliente, httpOptions).pipe(
+      tap((cliente: Cliente) => this.log(`sent client`)),
+      catchError(this.handleError<Cliente>('sendCliente'))
     );
   }
 

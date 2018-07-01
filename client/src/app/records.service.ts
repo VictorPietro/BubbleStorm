@@ -9,7 +9,7 @@ export class RecordsService {
     }
 
     getData(){
-        return this.http.get('http://192.168.0.10:8080/guiguer')
+        return this.http.get('http://localhost:8080')
         .subscribe(data => {
             console.log("we got", data)
         })

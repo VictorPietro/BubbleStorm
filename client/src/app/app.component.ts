@@ -12,7 +12,13 @@ import { GenerosComponent } from 'src/app/components/generos/generos.component';
 
 
 export class AppComponent {
+  //records = {}
 
   title = 'Bubble Store';
 
+  /*constructor(private myService: RecordsService) {}
+
+  ngOnInit(){
+    this.records = this.myService.getData()
+  }*/
 }
