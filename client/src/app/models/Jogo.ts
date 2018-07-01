@@ -7,5 +7,5 @@ export class Jogo {
     preco: number;
     anoLancamento: number;
     distribuidora: Distribuidora;
-    genero: Genero;
+    public generos: Genero[];
 }

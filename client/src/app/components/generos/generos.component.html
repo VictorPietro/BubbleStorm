@@ -13,7 +13,7 @@
 <ul class="generos">
   <li *ngFor="let genero of generos">
     <a routerLink="/detail/{{genero.id}}">
-      <span class="badge">{{genero.id}}</span> {{genero.nomeGenero}}
+      <span class="badge"></span> {{genero.nomeGenero}}
     </a>
     <button class="delete" title="delete genero"
       (click)="delete(genero)">x</button>

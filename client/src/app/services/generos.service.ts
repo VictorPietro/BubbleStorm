@@ -14,7 +14,7 @@ const httpOptions = {
 })
 export class GeneroService {
 
-  private generosUrl = 'api/generos';  // URL to web api
+  private generosUrl = 'http://localhost:8080/generos';  // URL to web api
  
   constructor(
     private http: HttpClient,
@@ -68,8 +68,8 @@ export class GeneroService {
  
   /** POST: add a new genero to the server */
   addGenero (genero: Genero): Observable<Genero> {
-    return this.http.post<Genero>(this.generosUrl, genero, httpOptions).pipe(
-      tap((genero: Genero) => this.log(`added genero w/ id=${genero.id}`)),
+    return this.http.post<any>(this.generosUrl, genero, httpOptions).pipe(
+      tap((genero: Genero) => this.log(`added genero`)),
       catchError(this.handleError<Genero>('addGenero'))
     );
   }

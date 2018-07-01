@@ -1,28 +1,67 @@
 import { Component, OnInit } from '@angular/core';
 import { Jogo } from '../../models/Jogo';
 import { Genero } from '../../models/Genero';
+import { GeneroService } from '../../services/generos.service';
+import { JogoService } from '../../services/jogo.service';
+
 
 @Component({
-  selector: 'app-registergame',
-  templateUrl: './registergame.component.html',
-  styleUrls: ['./registergame.component.css']
+    selector: 'app-registergame',
+    templateUrl: './registergame.component.html',
+    styleUrls: ['./registergame.component.css']
 })
 export class RegistergameComponent implements OnInit {
 
-  jogo: Jogo = new Jogo();
-  genero: Genero = new Genero();
-  constructor() { }
+    jogo: Jogo = new Jogo();
+    genero: Genero = new Genero();
+    generos: Genero[];
 
-  ngOnInit() {
-  }
+    constructor(
+        private generoService: GeneroService,
+        private jogoService: JogoService
+    ) {
+        this.jogo.generos = new Array();
+    }
 
-  teste() {
-    console.log("Nome do jogo: ", this.jogo.nome);
-    console.log("Preco do jogo: ", this.jogo.preco);
-    console.log("Ano de lancamento do jogo: ", this.jogo.anoLancamento);
-    console.log("Genero: ", this.jogo.genero);
-    console.log("Genero cadastrado nome: ", this.genero.nomeGenero);
-    console.log("Genero cadastrado descrição: ", this.genero.descricaoGenero);
-  }
+    ngOnInit() {
+        this.getGeneros();
+    }
+
+    adicionarGeneroJogo(genero: Genero) {
+        if (!this.jogo.generos.includes(genero)) {
+            this.jogo.generos.push(genero);
+        }
+    }
+
+    removerGeneroJogo(genero: Genero) {
+        this.jogo.generos = this.jogo.generos.filter(g => g !== genero);
+    }
+
+    getGeneros(): void {
+        this.generoService.getGeneros()
+            .subscribe(generos => this.generos = generos);
+    }
+
+    addGenero(): void {
+        this.generoService.addGenero(this.genero)
+            .subscribe(genero => {
+                this.generos.push(genero);
+                alert("Cadastro realizado com sucesso!");
+            });
+    }
+
+    addJogo(): void {
+        this.jogoService.addJogo(this.jogo)
+            .subscribe(jogo => {
+                alert("Cadastro realizado com sucesso!");
+            });
+    }
+
+    delete(genero: Genero): void {
+        this.generos = this.generos.filter(h => h !== genero);
+        this.generoService.deleteGenero(genero).subscribe();
+    }
+
+
 
 }

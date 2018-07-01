@@ -7,8 +7,6 @@ export class Usuario {
     nome: string;
     login: string;
     senha: string;
-    isDistributor: boolean;
     contato: Contato;
-    enderecos: Endereco[];
-    distribuidora: Distribuidora;
+    endereco: Endereco;
 }

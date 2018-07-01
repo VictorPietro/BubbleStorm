@@ -15,11 +15,9 @@ import { MessagesComponent } from 'src/app/components/messages/messages.componen
 import { GenerosComponent } from 'src/app/components/generos/generos.component';
 
 import { HttpClientModule } from '@angular/common/http';
-import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
 
 import { RecordsService } from './records.service';
-import { InMemoryDataService }  from './services/in-memory-data.service';
-import { InMemoryDbService } from 'angular-in-memory-web-api';
+import { CommonModule } from '@angular/common';
 
 @NgModule({
   declarations: [
@@ -38,14 +36,11 @@ import { InMemoryDbService } from 'angular-in-memory-web-api';
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
+    CommonModule,
     // The HttpClientInMemoryWebApiModule module intercepts HTTP requests
     // and returns simulated server responses.
     // Remove it when a real server is ready to receive requests.
-    HttpClientInMemoryWebApiModule.forRoot(
-      InMemoryDataService, { dataEncapsulation: false }
-    ),
     FormsModule,
-    HttpClientInMemoryWebApiModule
   ],
   providers: [RecordsService],
   bootstrap: [AppComponent]
