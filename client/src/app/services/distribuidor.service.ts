@@ -3,6 +3,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Distribuidora } from '../models/Distribuidora';
 import { Observable,  of } from 'rxjs';
 import { tap, catchError } from 'rxjs/operators';
+import { Jogo } from '../models/Jogo';
 
 const httpOptions = {
   headers: new HttpHeaders({ 'Content-Type': 'application/json' })
@@ -27,6 +28,23 @@ export class DistribuidorService {
     return this.http.post<any>(this.url+'/login', distribuidor, httpOptions).pipe(
       tap((distribuidor: Distribuidora) => this.log(`sent Distribuidor`)),
       catchError(this.handleError<Distribuidora>('sendDistribuidor'))
+    );
+  }
+
+  /*getDistribuidorJogos(distribuidor: Distribuidora): Observable<Distribuidora> {
+    return this.http.post<any>(this.url+'/jogos', distribuidor, httpOptions).pipe(
+      tap((distribuidor: Distribuidora) => this.log(`got distribuidor jogos`)),
+      catchError(this.handleError<Distribuidora>('getDistribuidorJogos'))
+    );
+  }*/
+
+  //GET genero by id. Will 404 if id not found 
+  getDistribuidorJogos(id: string): Observable<Jogo[]> {
+    const urlFull = `${this.url}/jogos/${id}`;
+    return this.http.get<Jogo[]>(urlFull)
+      .pipe(
+        tap(_ => this.log(`fetched genero id=${id}`)),
+        catchError(this.handleError<Jogo[]>(`getDistribuidorJogos id=${id}`))
     );
   }
 

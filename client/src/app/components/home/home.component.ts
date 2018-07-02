@@ -22,12 +22,11 @@ const httpOptions = {
 @Injectable()
 export class HomeComponent implements OnInit {
 
-  private usuarioUrl = 'http://192.168.0.90:8080/clientes/login';
-  private distribuidorUrl = 'http://192.168.0.90:8080/clientes';
-
   usuario: Usuario = new Usuario();
   cliente: Cliente = new Cliente();
   distribuidora: Distribuidora = new Distribuidora();
+  loggedUser: Cliente = new Cliente();
+  loggedDistr: Distribuidora = new Distribuidora();
 
   rota: string
 
@@ -35,31 +34,39 @@ export class HomeComponent implements OnInit {
     private dataService: DataService,
     private http: HttpClient,
     private clienteService: ClienteService,
-    private distribuidorService: DistribuidorService ) { }
+    private distribuidorService: DistribuidorService) { }
 
   ngOnInit() {
   }
 
   ngOnDestroy() {
     this.dataService.data = this.rota;
+    if(this.rota == 'user'){
+      this.dataService.clienteUser = this.loggedUser;
+    }else{
+      this.dataService.distribuidorUser = this.loggedDistr;
+    }
+    
   }
 
   clickTipo(type: string) {
     this.rota = type;
   }
 
-  mandarLogin(){
-    if(this.rota == 'user'){
+  mandarLogin() {
+    var that = this;
+
+    if (this.rota == 'user') {
       this.cliente.login = this.usuario.login;
       this.cliente.senha = this.usuario.senha;
-      this.clienteService.sendCliente(this.cliente).subscribe(cliente => {
-        alert("Login realizado com sucesso!");
-      });;
+      this.clienteService.sendCliente(this.cliente).subscribe(c => {
+        that.loggedUser = c;
+      });
     } else {
       this.distribuidora.login = this.usuario.login;
       this.distribuidora.senha = this.usuario.senha;
-      this.distribuidorService.sendDistribuidor(this.distribuidora).subscribe(distribuidora => {
-        alert("Login realizado com sucesso!");
+      this.distribuidorService.sendDistribuidor(this.distribuidora).subscribe(d => {
+        that.loggedDistr = d;
       });;
     }
   }
