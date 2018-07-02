@@ -2,65 +2,52 @@
 	<div class="wrap-contact100">
 		<form class="contact100-form validate-form">
 			
-			<span class="contact100-form-title">
+			<span (click)="mudar()" class="contact100-form-title">
 				BEM VINDO, {{distribuidor.nome}}
 				<br>
 				<span style="color:blue">LISTA DE JOGOS CADASTRADOS</span>
 			</span>
-
-
-
-			<div class="w-full rs1-wrap-input100">
-
-
-				<div class="wrap-contact100-form-range">
-					<span class="label-input100" style="font-size: 20px">PREÇO $</span>
-
-					<input class="input100" placeholder="min" type="number" name="preco" [(ngModel)]="filterPrecoMin">
-					<input class="input100" placeholder="max" type="number" name="preco2" [(ngModel)]="filterPrecoMax">
-
-				</div>
-			</div>
-
-			<div class="wrap-input100 input100-select bg1 rs1-wrap-input100" style="height: 50%; margin-top: 5%">
-				<span class="label-input100">FILTRAR POR *</span>
-				<div>
-					<select class="js-select2" class="label-input100" style="font-size:18px" name="filter" [(ngModel)]="filter">
-						<option>Nome</option>
-						<option>Gênero</option>
-						<option>Distribuidora</option>
-					</select>
-					<div class="dropDownSelect2"></div>
-				</div>
-			</div>
 
 			<div class="wrap-input100 bg0" style="max-height:350px; overflow-y:scroll">
 				<input class="input100" type="text" name="search" placeholder="Pesquisar por nome">
 				<i class="fa fa-search" id="busca" alt="Buscar"></i>
 				<hr>
 				<ul>
-					<li class="row">
-						<div class="col-md-4">
-							<span class="label-input100">Nome</span>
-						</div>
-						<div class="col-md-4">
-							<span class="label-input100">Preço R$</span>
-						</div>
-						<div class="col-md-4">
-							<span class="label-input100">Gênero</span>
-						</div>
-
-						
-
-					</li>
-					<div *ngFor="let jogo of jogos">
 						<li class="row">
 							<div class="col-md-4">
-								<span class="label-input100">{{jogo.nome}}</span>
+								<span class="label-input100">Nome</span>
+							</div>
+							<div class="col-md-2">
+								<span class="label-input100">Preço</span>
+							</div>
+							<div class="col-md-3">
+								<span class="label-input100">Gêneros</span>
+							</div>
+							<div class="col-md-1">
+								<span class="label-input100">Deletar</span>
 							</div>
 						</li>
-					</div>
-				</ul>
+						<div *ngFor="let jogo of jogos">
+							<li class="row">
+								<div class="col-md-4">
+									{{jogo.nome}}
+								</div>
+								<div class="col-md-2">
+									{{jogo.preco}}
+								</div>
+								<div class="col-md-3">
+									<a *ngFor="let genero of jogo.generos">
+										{{genero.nomeGenero}},
+									</a>
+								</div>
+								<div class="col-md-1">
+									<i style="margin-left: 100%;" class="fa fa-minus" (click)="deletarJogo(jogo)">
+									</i>
+								</div>
+							</li>
+							<hr>
+						</div>
+					</ul>
 			</div>
 
 			<div class="container-contact100-form-btn">
@@ -77,15 +64,6 @@
 					<button class="contact100-form-btn col-md-4" style="margin: 5px" (click)="teste()">
 						<span>
 							Cadastrar Jogo
-							<i class="fa fa-long-arrow-right m-l-7" aria-hidden="true"></i>
-						</span>
-					</button>
-				</a>
-
-				<a class="contact100-form-btn col-md-4">
-					<button class="contact100-form-btn col-md-4" style="margin: 5px" (click)="getJogos()">
-						<span>
-							Deletar Jogo
 							<i class="fa fa-long-arrow-right m-l-7" aria-hidden="true"></i>
 						</span>
 					</button>
