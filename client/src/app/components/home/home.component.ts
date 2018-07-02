@@ -4,7 +4,6 @@ import { Usuario } from '../../models/Usuario';
 import { DataService } from '../../services/data.service';
 import { Observable, of } from 'rxjs';
 import { catchError, map, tap } from 'rxjs/operators';
-import { MessageService } from '../../services/message.service';
 import { ClienteService } from '../../services/cliente.service';
 import { Cliente } from '../../models/Cliente';
 import { Distribuidora } from '../../models/Distribuidora'
@@ -34,7 +33,6 @@ export class HomeComponent implements OnInit {
   constructor(
     private dataService: DataService,
     private http: HttpClient,
-    private messageService: MessageService,
     private clienteService: ClienteService,
     private distribuidorService: DistribuidorService) { }
 
