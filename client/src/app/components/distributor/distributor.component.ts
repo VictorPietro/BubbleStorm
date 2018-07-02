@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { JogoService } from '../../services/jogo.service'
 import { Jogo } from '../../models/Jogo';
+import { DataService } from '../../services/data.service';
+import { Distribuidora } from '../../models/Distribuidora';
+import { filter } from 'rxjs/operators';
 
 @Component({
   selector: 'app-distributor',
@@ -11,13 +14,16 @@ export class DistributorComponent implements OnInit {
 
   jogo: Jogo = new Jogo();
   jogos: Jogo[];
+  distribuidor: Distribuidora = new Distribuidora();
 
   filter:string;
 
-  constructor(private jogoService: JogoService) { }
+  constructor(private jogoService: JogoService,private dataService: DataService) { }
 
   ngOnInit() {
-    this.getJogos;
+    //this.getJogos;
+    this.distribuidor = this.dataService.distribuidorUser;
+    this.getJogos();
   }
 
   teste(){
@@ -29,8 +35,4 @@ export class DistributorComponent implements OnInit {
     this.jogoService.deleteJogo(this.jogo).subscribe();
   }
 
-  getJogos(): void {
-    this.jogoService.getJogos()
-      .subscribe(jogos => this.jogos = jogos);
-  }
 }
