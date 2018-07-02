@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { MessageService } from './message.service';
 import { Distribuidora } from '../models/Distribuidora';
 import { Observable,  of } from 'rxjs';
 import { tap, catchError } from 'rxjs/operators';
@@ -15,7 +14,7 @@ const httpOptions = {
 export class DistribuidorService {
   private url = 'http://192.168.0.90:8080/distribuidores';
 
-  constructor(private http: HttpClient, private messageService : MessageService ) { }
+  constructor(private http: HttpClient) { }
 
   addDistribuidor(distribuidor: Distribuidora): Observable<Distribuidora> {
     return this.http.post<any>(this.url, distribuidor, httpOptions).pipe(
@@ -45,6 +44,5 @@ export class DistribuidorService {
 
   /** Log a GeneroService message with the MessageService */
   private log(message: string) {
-    this.messageService.add('DistribuidorService: ' + message);
   }
 }

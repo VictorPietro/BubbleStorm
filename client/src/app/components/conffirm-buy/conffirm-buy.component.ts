@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { MessageService } from 'src/app/services/message.service'
 
 @Component({
   selector: 'app-conffirm-buy',
@@ -8,7 +7,7 @@ import { MessageService } from 'src/app/services/message.service'
 })
 export class ConffirmBuyComponent implements OnInit {
 
-  constructor(private messageService: MessageService) { }
+  constructor() { }
 
   tipoPgto: string
 

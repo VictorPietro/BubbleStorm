@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { catchError, map, tap } from 'rxjs/operators';
-import { MessageService } from './message.service';
 import { Observable, of } from 'rxjs';
 import { Genero } from '../models/Genero';
 
@@ -17,8 +16,7 @@ export class GeneroService {
   private generosUrl = 'http://192.168.0.90:8080/generos';  // URL to web api
  
   constructor(
-    private http: HttpClient,
-    private messageService: MessageService) { }
+    private http: HttpClient) { }
  
   /** GET generos from the server */
   getGeneros (): Observable<Genero[]> {
@@ -28,44 +26,7 @@ export class GeneroService {
         catchError(this.handleError('getGeneros', []))
       );
   }
- 
-  /** GET genero by id. Return `undefined` when id not found 
-  getGeneroNo404<Data>(id: number): Observable<Genero> {
-    const url = `${this.generosUrl}/?id=${id}`;
-    return this.http.get<Genero[]>(url)
-      .pipe(
-        map(generos => generos[0]), // returns a {0|1} element array
-        tap(h => {
-          const outcome = h ? `fetched` : `did not find`;
-          this.log(`${outcome} genero id=${id}`);
-        }),
-        catchError(this.handleError<Genero>(`getGenero id=${id}`))
-      );
-  }*/
- 
-  /** GET genero by id. Will 404 if id not found 
-  getGenero(id: number): Observable<Genero> {
-    const url = `${this.generosUrl}/${id}`;
-    return this.http.get<Genero>(url).pipe(
-      tap(_ => this.log(`fetched genero id=${id}`)),
-      catchError(this.handleError<Genero>(`getGenero id=${id}`))
-    );
-  }*/
- 
-  /* GET generos whose name contains search term 
-  searchGeneros(term: string): Observable<Genero[]> {
-    if (!term.trim()) {
-      // if not search term, return empty genero array.
-      return of([]);
-    }
-    return this.http.get<Genero[]>(`${this.generosUrl}/?name=${term}`).pipe(
-      tap(_ => this.log(`found generos matching "${term}"`)),
-      catchError(this.handleError<Genero[]>('searchGeneros', []))
-    );
-  }*/
- 
-  //////// Save methods //////////
- 
+
   /** POST: add a new genero to the server */
   addGenero (genero: Genero): Observable<Genero> {
     return this.http.post<any>(this.generosUrl, genero, httpOptions).pipe(
@@ -115,6 +76,6 @@ export class GeneroService {
  
   /** Log a GeneroService message with the MessageService */
   private log(message: string) {
-    this.messageService.add('GeneroService: ' + message);
+ 
   }
 }

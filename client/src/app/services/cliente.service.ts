@@ -3,7 +3,6 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { catchError, map, tap } from 'rxjs/operators';
 import { Observable, of } from 'rxjs';
 import { Cliente } from '../models/Cliente';
-import { MessageService } from './message.service';
 
 const httpOptions = {
   headers: new HttpHeaders({ 'Content-Type': 'application/json' })
@@ -16,7 +15,7 @@ export class ClienteService {
 
   private url = 'http://192.168.0.90:8080/clientes';
 
-  constructor(private http: HttpClient, private messageService : MessageService) { }
+  constructor(private http: HttpClient) { }
 
   addCliente(cliente: Cliente): Observable<Cliente> {
     return this.http.post<any>(this.url, cliente, httpOptions).pipe(
@@ -47,6 +46,5 @@ export class ClienteService {
 
   /** Log a GeneroService message with the MessageService */
   private log(message: string) {
-    this.messageService.add('GeneroService: ' + message);
   }
 }
