@@ -34,7 +34,7 @@ import { CommonModule } from '@angular/common';
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    CommonModule,    
+    CommonModule
   ],
   providers: [RecordsService],
   bootstrap: [AppComponent]

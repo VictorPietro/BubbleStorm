@@ -4,6 +4,7 @@ import { Jogo } from '../../models/Jogo';
 import { DataService } from '../../services/data.service';
 import { Distribuidora } from '../../models/Distribuidora';
 import { filter } from 'rxjs/operators';
+import { DistribuidorService } from '../../services/distribuidor.service'
 
 @Component({
   selector: 'app-distributor',
@@ -18,21 +19,24 @@ export class DistributorComponent implements OnInit {
 
   filter:string;
 
-  constructor(private jogoService: JogoService,private dataService: DataService) { }
+  constructor(private jogoService: JogoService,private dataService: DataService,
+             private distribuidorService: DistribuidorService) { }
 
   ngOnInit() {
-    //this.getJogos;
+    this.getJogos;
     this.distribuidor = this.dataService.distribuidorUser;
-    this.getJogos();
   }
 
   teste(){
     console.log("Filter: ", this.filter);
   }
 
-  deletarJogo(): void{
-    //this.jogo.id = '5b3886f37099b236889c862d';
+  deletarJogo(jogo : Jogo): void{
     this.jogoService.deleteJogo(this.jogo).subscribe();
   }
-
+  
+  getJogos(): void {
+    this.distribuidorService.getDistribuidorJogos(this.destribuidor.id)
+    .subscribe(jogo =>{this.jogos = jogo});
+  }
 }
