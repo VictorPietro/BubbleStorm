@@ -63,9 +63,4 @@ export class RegistergameComponent implements OnInit {
         this.generos = this.generos.filter(h => h !== genero);
         this.generoService.deleteGenero(genero).subscribe();
     }
-
-    /*filtro(): void{
-        this.generos = this.generos.filter(elementoAtual =>
-            //elementoAtual.includes(entrada));
-    }*/
 }
