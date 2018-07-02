@@ -15,6 +15,7 @@ import { GenerosComponent } from './components/generos/generos.component';
 import { HttpClientModule } from '@angular/common/http';
 import { RecordsService } from './records.service';
 import { CommonModule } from '@angular/common';
+import { ConffirmBuyComponent } from 'src/app/components/conffirm-buy/conffirm-buy.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import { CommonModule } from '@angular/common';
     UserComponent,
     MessagesComponent,
     GenerosComponent,
-    DashboardComponent
+    DashboardComponent,
+    ConffirmBuyComponent
   ],
   imports: [
     FormsModule,
