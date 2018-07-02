@@ -28,14 +28,11 @@ import { ConffirmBuyComponent } from 'src/app/components/conffirm-buy/conffirm-b
     ConffirmBuyComponent
   ],
   imports: [
+    FormsModule,
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    CommonModule,
-    // The HttpClientInMemoryWebApiModule module intercepts HTTP requests
-    // and returns simulated server responses.
-    // Remove it when a real server is ready to receive requests.
-    FormsModule,
+    CommonModule
   ],
   providers: [RecordsService],
   bootstrap: [AppComponent]
