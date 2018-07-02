@@ -9,9 +9,9 @@ import { RegistergameComponent } from './components/registergame/registergame.co
 import { DistributorComponent } from './components/distributor/distributor.component';
 import { StoreComponent } from './components/store/store.component';
 import { UserComponent } from './components/user/user.component';
-import { DashboardComponent } from 'src/app/components/dashboard/dashboard.component';
-import { MessagesComponent } from 'src/app/components/messages/messages.component';
-import { GenerosComponent } from 'src/app/components/generos/generos.component';
+import { DashboardComponent } from './components/dashboard/dashboard.component';
+import { MessagesComponent } from './components/messages/messages.component';
+import { GenerosComponent } from './components/generos/generos.component';
 import { HttpClientModule } from '@angular/common/http';
 import { RecordsService } from './records.service';
 import { CommonModule } from '@angular/common';
@@ -34,10 +34,7 @@ import { CommonModule } from '@angular/common';
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    CommonModule,
-    // The HttpClientInMemoryWebApiModule module intercepts HTTP requests
-    // and returns simulated server responses.
-    // Remove it when a real server is ready to receive requests.
+    CommonModule
   ],
   providers: [RecordsService],
   bootstrap: [AppComponent]

@@ -1,8 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { JogoService } from '../../services/jogo.service'
 import { Jogo } from '../../models/Jogo';
+import { DataService } from '../../services/data.service';
+import { Distribuidora } from '../../models/Distribuidora';
+import { filter } from 'rxjs/operators';
 import { DistribuidorService } from '../../services/distribuidor.service'
-import { Distribuidora } from '../../models/Distribuidora'
 
 @Component({
   selector: 'app-distributor',
@@ -12,31 +14,29 @@ import { Distribuidora } from '../../models/Distribuidora'
 export class DistributorComponent implements OnInit {
 
   jogo: Jogo = new Jogo();
-  destribuidora: Distribuidora = new Distribuidora();
   jogos: Jogo[];
+  distribuidor: Distribuidora = new Distribuidora();
 
   filter:string;
 
-  constructor(
-    private jogoService: JogoService,
-    private distribuidorService: DistribuidorService) { }
+  constructor(private jogoService: JogoService,private dataService: DataService,
+             private distribuidorService: DistribuidorService) { }
 
   ngOnInit() {
-    this.getJogos();
+    this.getJogos;
+    this.distribuidor = this.dataService.distribuidorUser;
   }
 
   teste(){
     console.log("Filter: ", this.filter);
   }
 
-  deletarJogo(): void{
-    //this.jogo.id = '5b3886f37099b236889c862d';
+  deletarJogo(jogo : Jogo): void{
     this.jogoService.deleteJogo(this.jogo).subscribe();
   }
-
+  
   getJogos(): void {
-    this.destribuidora.id = '5b384ff97099b236889c85ee';
-    this.distribuidorService.getDistribuidorJogos(this.destribuidora.id)
+    this.distribuidorService.getDistribuidorJogos(this.destribuidor.id)
     .subscribe(jogo =>{this.jogos = jogo});
   }
 }
