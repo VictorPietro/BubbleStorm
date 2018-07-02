@@ -13,9 +13,9 @@ const httpOptions = {
   providedIn: 'root'
 })
 export class JogoService {
-  private url = 'http://192.168.0.90:8080/asdadasd/jogos';
+  private url = 'http://192.168.0.90:8080/jogos';
 
-  constructor(private http: HttpClient, private messageService : MessageService ) { }
+  constructor(private http: HttpClient, private messageService: MessageService) { }
 
   addJogo(jogo: Jogo): Observable<Jogo> {
     return this.http.post<any>(this.url, jogo, httpOptions).pipe(
@@ -24,32 +24,32 @@ export class JogoService {
     );
   }
 
-  deleteJogo (jogo: Jogo | number): Observable<Jogo> {
+  deleteJogo(jogo: Jogo | number): Observable<Jogo> {
     const id = typeof jogo === 'number' ? jogo : jogo.id;
     const url = `${this.url}/${id}`;
- 
+
     return this.http.delete<Jogo>(url, httpOptions).pipe(
       tap(_ => this.log(`deleted genero id=${id}`)),
       catchError(this.handleError<Jogo>('deleteGenero'))
     );
   }
 
-  /*getJogos (): Observable<Jogo[]> {
+  getJogos(): Observable<Jogo[]> {
     return this.http.get<Jogo[]>(this.url)
       .pipe(
         tap(jogos => this.log(`fetched jogos`)),
         catchError(this.handleError('getJogos', []))
       );
-  }*/
+  }
 
   private handleError<T>(operation = 'operation', result?: T) {
     return (error: any): Observable<T> => {
 
-     
-      console.error(error); 
+
+      console.error(error);
       this.log(`${operation} failed: ${error.message}`);
 
-      
+
       return of(result as T);
     };
   }
