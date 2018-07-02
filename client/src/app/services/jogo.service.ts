@@ -13,9 +13,7 @@ const httpOptions = {
   providedIn: 'root'
 })
 export class JogoService {
-  private url = 'http://192.168.0.90:8080/jogos';
-
-  jogo = new Jogo();
+  private url = 'http://192.168.0.90:8080/asdadasd/jogos';
 
   constructor(private http: HttpClient, private messageService : MessageService ) { }
 
@@ -36,13 +34,13 @@ export class JogoService {
     );
   }
 
-  getJogos(): Observable<Jogo[]> {
+  /*getJogos (): Observable<Jogo[]> {
     return this.http.get<Jogo[]>(this.url)
       .pipe(
         tap(jogos => this.log(`fetched jogos`)),
         catchError(this.handleError('getJogos', []))
       );
-  }
+  }*/
 
   private handleError<T>(operation = 'operation', result?: T) {
     return (error: any): Observable<T> => {
