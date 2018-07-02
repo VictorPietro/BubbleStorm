@@ -9,25 +9,12 @@
 
 
 				<div class="wrap-contact100-form-range">
-					<span class="label-input100">PREÇO *</span>
+					<span class="label-input100" style="font-size: 20px">PREÇO $</span>
 
-					<div class="contact100-form-range-value">
-						$
-						<span id="value-lower">0</span> - $
-						<span id="value-upper">250</span>
-						<input type="text" name="from-value">
-						<input type="text" name="to-value">
-						<label id="disable2">
-							<input type="checkbox" id="checkbox1">
-							Disable handler
-						</label>
-					</div>
-
-					<div class="contact100-form-range-bar">
-						<div id="filter-bar" class="noUi-origin"></div>
-						
-					</div>
+					<input class="input100" placeholder="min" type="number" name="preco" [(ngModel)]="filterPrecoMin">
+					<input class="input100" placeholder="max" type="number" name="preco2" [(ngModel)]="filterPrecoMax">
 				</div>
+
 			</div>
 
 			<div class="wrap-input100 input100-select bg1 rs1-wrap-input100" style="height: 50%; margin-top: 10%">

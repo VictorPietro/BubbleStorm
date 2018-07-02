@@ -7,6 +7,7 @@ import { DistributorComponent } from './components/distributor/distributor.compo
 import { StoreComponent } from './components/store/store.component';
 import { UserComponent } from './components/user/user.component';
 import { GenerosComponent } from './components/generos/generos.component';
+import { ConffirmBuyComponent } from 'src/app/components/conffirm-buy/conffirm-buy.component';
 
 const routes: Routes = [
   {
@@ -37,6 +38,10 @@ const routes: Routes = [
   {
     path: 'generos',
     component: GenerosComponent
+  },
+  {
+    path: 'conffirm',
+    component: ConffirmBuyComponent
   },
   {
     path: '',
