@@ -16,7 +16,7 @@ export class ClienteService {
 
   private url = 'http://192.168.0.90:8080/clientes';
 
-  constructor(private http: HttpClient, private messageService : MessageService) { }
+  constructor(private http: HttpClient, private messageService: MessageService) { }
 
   addCliente(cliente: Cliente): Observable<Cliente> {
     return this.http.post<any>(this.url, cliente, httpOptions).pipe(
@@ -25,9 +25,16 @@ export class ClienteService {
     );
   }
 
+  getCliente(id : String): Observable<Cliente> {
+    return this.http.get<any>(this.url+'/'+id, httpOptions).pipe(
+      tap((cliente: Cliente) => this.log(`added cliente`)),
+      catchError(this.handleError<Cliente>('addCliente'))
+    );
+  }
+
   sendCliente(cliente: Cliente): Observable<Cliente> {
     console.log(cliente);
-    return this.http.post<any>(this.url+'/login', cliente, httpOptions).pipe(
+    return this.http.post<Cliente>(this.url + '/login', cliente, httpOptions).pipe(
       tap((cliente: Cliente) => this.log(`sent client`)),
       catchError(this.handleError<Cliente>('sendCliente'))
     );
@@ -36,11 +43,11 @@ export class ClienteService {
   private handleError<T>(operation = 'operation', result?: T) {
     return (error: any): Observable<T> => {
 
-     
-      console.error(error); 
+
+      console.error(error);
       this.log(`${operation} failed: ${error.message}`);
 
-      
+
       return of(result as T);
     };
   }

@@ -49,9 +49,7 @@ export class RegisteruserComponent implements OnInit {
     this.cliente.login = this.usuario.login;
     this.cliente.senha = this.usuario.senha;
     this.cliente.nome = this.usuario.nome;
-
-    //this.cliente.dataNascimento = this.dataTratada.getTime();
-    this.cliente.dataNascimento = null;
+    this.cliente.dataNascimento = this.cliente.dataNascimento;
 
     this.cliente.contato = this.contato;
     this.cliente.endereco = this.endereco;

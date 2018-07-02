@@ -4,6 +4,8 @@ import { Genero } from '../../models/Genero';
 import { GeneroService } from '../../services/generos.service';
 import { JogoService } from '../../services/jogo.service';
 import { filter } from 'rxjs/operators';
+import { DataService } from '../../services/data.service';
+import { Distribuidora } from '../../models/Distribuidora';
 
 
 @Component({
@@ -16,17 +18,23 @@ export class RegistergameComponent implements OnInit {
     jogo: Jogo = new Jogo();
     genero: Genero = new Genero();
     generos: Genero[];
+    distribuidor: Distribuidora = new Distribuidora();
     entrada;
 
     constructor(
         private generoService: GeneroService,
-        private jogoService: JogoService
+        private jogoService: JogoService,
+        private dataService: DataService
     ) {
-        this.jogo.generos = new Array();
+
     }
 
     ngOnInit() {
         this.getGeneros();
+        this.distribuidor = this.dataService.distribuidorUser;
+        this.jogo.generos = new Array();
+        this.jogo.distribuidora = this.distribuidor;
+        console.log(this.distribuidor);
     }
 
     adicionarGeneroJogo(genero: Genero) {

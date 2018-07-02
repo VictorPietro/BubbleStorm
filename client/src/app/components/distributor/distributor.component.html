@@ -1,8 +1,9 @@
 <div class="container-contact100">
 	<div class="wrap-contact100">
 		<form class="contact100-form validate-form">
+			
 			<span class="contact100-form-title">
-				BEM VINDO, DISTRIBUIDOR
+				BEM VINDO, {{distribuidor.nome}}
 				<br>
 				<span style="color:blue">LISTA DE JOGOS CADASTRADOS</span>
 			</span>
@@ -48,29 +49,17 @@
 						<div class="col-md-4">
 							<span class="label-input100">Gênero</span>
 						</div>
+
+						
+
 					</li>
-					<li class="row">
-						<div class="col-md-4">
-							Jogo Cadastrado 1
-						</div>
-						<div class="col-md-4">
-							35,99
-						</div>
-						<div class="col-md-4">
-							Gênero Cadastrado 1
-						</div>
-					</li>
-					<li class="row">
-						<div class="col-md-4">
-							Jogo Cadastrado 2
-						</div>
-						<div class="col-md-4">
-							14,99
-						</div>
-						<div class="col-md-4">
-							Gênero Cadastrado 1
-						</div>
-					</li>
+					<div *ngFor="let jogo of jogos">
+						<li class="row">
+							<div class="col-md-4">
+								<span class="label-input100">{{jogo.nome}}</span>
+							</div>
+						</li>
+					</div>
 				</ul>
 			</div>
 
@@ -94,7 +83,7 @@
 				</a>
 
 				<a class="contact100-form-btn col-md-4">
-					<button class="contact100-form-btn col-md-4" style="margin: 5px" (click)="deletarJogo()">
+					<button class="contact100-form-btn col-md-4" style="margin: 5px" (click)="getJogos()">
 						<span>
 							Deletar Jogo
 							<i class="fa fa-long-arrow-right m-l-7" aria-hidden="true"></i>
